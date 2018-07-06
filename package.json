@@ -1,0 +1,129 @@
+{
+  "name": "@fishtank/grid",
+  "version": "2.3.4",
+  "description": "Fishtank Grid",
+  "author": "Fishtank Design System <agile_fishtank@bna.com>",
+  "license": "Apache-2.0",
+  "main": "index.scss",
+  "keywords": [
+    "fishtank",
+    "design-system",
+    "grid",
+    "layout"
+  ],
+  "files": [
+    "dist/",
+    "src/styles/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "test": "stylelint \"src/styles/**.scss\" --syntax scss",
+    "prefix": "npx postcss dist/*.css -c postcss.config.js ---dir dist",
+    "commitmsg": "nothing-major -v -b",
+    "altprefix": "npx postcss dist/*.css --use autoprefixer -autoprefixer.grid=true -d dist",
+    "build:server": "node build/build.js",
+    "build:debug": "npm run clean && node-sass src/styles/index.scss dist/index.css && npm run prefix",
+    "build:flex": "node-sass src/styles/index.scss dist/index.css --output-style compressed --source-map dist/",
+    "build:dgrid": "node-sass src/styles/index-dgrid.scss dist/index-dgrid.css --output-style compressed  --source-map dist/",
+    "build": "npm run clean && npm run build:flex && npm run build:dgrid && npm run prefix",
+    "release-props:ci": "scripts/release-props.sh > release.props",
+    "release": "standard-version"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "indentation": "tab",
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "function",
+            "if",
+            "each",
+            "include",
+            "mixin",
+            "for",
+            "extend"
+          ]
+        }
+      ],
+      "font-family-no-duplicate-names": [
+        true,
+        {
+          "ignoreFontFamilyNames": [
+            "monospace"
+          ]
+        }
+      ]
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "@fishtank/space": "latest",
+    "@fishtank/colors": "latest",
+    "ava": "0.25.0",
+    "cz-conventional-changelog": "2.1.0",
+    "husky": "0.14.3",
+    "nodemon": "^1.12.2",
+    "nothing-major": "^1.1.1",
+    "standard-version": "^4.3.0",
+    "ajv": "6.5.0",
+    "autoprefixer": "^8.3.0",
+    "babel-core": "^6.22.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-stage-2": "^6.22.0",
+    "chalk": "^2.0.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "node-notifier": "^5.1.2",
+    "node-sass": "4.8.3",
+    "normalize.css": "8.0.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^1.2.0",
+    "portfinder": "^1.0.13",
+    "postcss-cli": "5.0.0",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
+    "postcss-syntax": "0.10.0",
+    "postcss-url": "7.3.2",
+    "rimraf": "^2.6.0",
+    "sass-loader": "6.0.7",
+    "semver": "^5.3.0",
+    "shelljs": "^0.7.6",
+    "stylelint": "9.2.1",
+    "stylelint-config-standard": "18.2.0",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^13.3.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

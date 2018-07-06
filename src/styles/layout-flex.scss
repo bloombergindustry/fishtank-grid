@@ -1,0 +1,59 @@
+@import '../../node_modules/@fishtank/colors/dist/index.scss';
+@import '../../node_modules/@fishtank/space/dist/index.scss';
+@import './layout-container.scss';
+
+$baseline:4px;
+
+$flex-container-max-widths:(
+	xs: map-get($grid-breakpoints, xs),
+	sm: map-get($grid-breakpoints, sm),
+	md: map-get($grid-breakpoints, md),
+	lg: map-get($grid-breakpoints, lg),
+	xl: map-get($grid-breakpoints, xl),
+);
+
+$padding-bp:(
+	xs: map-get($grid-breakpoints, xs),
+	md: map-get($grid-breakpoints, md)
+);
+
+$baseline:4px;
+
+.container_fill-height {
+	align-items: center;
+}
+
+.row-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 100%;
+	padding-left: 4px;
+	padding-right: 4px;
+
+	@each $size, $width in $flex-container-max-widths {
+		@for $i from 1 through 12 {
+			.col-#{$size}#{$i} {
+				flex: 1 1 100%;
+				padding-left: 12px;
+				padding-right: 12px;
+				box-sizing: content-box;
+			}
+		}
+
+		@media screen and (min-width: #{$width}) {
+			@for $i from 1 through 12 {
+				.col-#{$size}#{$i} {
+
+					$calWidth:  calc(((#{$i}/12) * 100% - 24px));
+
+					max-width: #{$calWidth};
+				}
+
+				.col-#{$size}-offset#{$i} {
+					margin-left: calc((#{$i} /12) * 100%);
+				}
+			}
+		}
+	}
+}

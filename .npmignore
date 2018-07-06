@@ -1,0 +1,6 @@
+src/
+*.tgz
+test*
+packages/
+.npmrc.asc
+.npmrc

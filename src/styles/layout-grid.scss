@@ -1,0 +1,86 @@
+@import '../../node_modules/@fishtank/colors/dist/index.scss';
+@import '../../node_modules/@fishtank/space/dist/index.scss';
+@import './layout-container.scss';
+
+$baseline:4px;
+
+$display-grid-container-max-widths:(
+	xs: map-get($grid-breakpoints, xs),
+	sm: map-get($grid-breakpoints, sm),
+	md: map-get($grid-breakpoints, md),
+	lg: map-get($grid-breakpoints, lg),
+	xl: map-get($grid-breakpoints, xl)
+);
+
+.row-dgrid {
+	display: grid;
+	padding-left: 16px;
+	padding-right: 16px;
+	grid-gap: 24px;
+	max-width: calc(100% - 32px);
+
+	@media (min-width: #{map-get($grid-breakpoints, md)}) {
+		// grid-gap: #{$baseline *6};
+		// padding-left: #{$baseline*3};
+		// padding-right: #{$baseline*3};
+	}
+
+	&.col-fixed {
+		@for $i from 1 through 12 {
+			&-#{$i} {
+
+				$gridTemplateColumns: repeat(#{$i}, 1fr);
+
+				grid-template-columns: $gridTemplateColumns;
+				box-sizing: content-box;
+			}
+		}
+	}
+
+	.col {
+		@for $i from 1 through 12 {
+			&-#{$i} {
+				grid-column: span #{$i};
+				box-sizing: content-box;
+			}
+		}
+	}
+
+	@each $size, $width in $display-grid-container-max-widths {
+		@media (min-width: #{$width}) {
+			@for $i from 1 through 12 {
+				.col {
+					&-#{$size}#{$i} {
+
+						$gridColumns: span #{$i};
+
+						grid-column: $gridColumns;
+						box-sizing: content-box;
+					}
+				}
+			}
+		}
+
+		@for $i from 1 through 13 {
+			.col-offset-start-#{$size} {
+				&#{$i} {
+
+					$gridColumnStart:#{$i};
+
+					-ms-grid-column: $gridColumnStart;
+					grid-column-start: $gridColumnStart;
+				}
+			}
+
+			.col-offset-end-#{$size} {
+				&#{$i} {
+
+					$gridColumnEnd:#{$i};
+
+					-ms-grid-column-span: $gridColumnEnd;
+					grid-column-end: $gridColumnEnd;
+				}
+			}
+		}
+	}
+}

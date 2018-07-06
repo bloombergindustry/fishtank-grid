@@ -1,0 +1,60 @@
+@import '../../node_modules/@fishtank/colors/dist/index.scss';
+@import '../../node_modules/@fishtank/space/dist/index.scss';
+
+$baseline:4px;
+
+$xs-bp:0;
+$sm-bp:480px;
+$md-bp:752px;
+$lg-bp:1008px;
+$xl-bp:1440px;
+
+$md-mw:752px;
+$lg-mw:1008px;
+$xl-mw:1440px;
+
+$grid-breakpoints : (
+	xs: $xs-bp,
+	sm: $sm-bp,
+	md: $md-bp,
+	lg: $lg-bp,
+	xl: $xl-bp
+);
+
+$content-maxWidth : (
+	md: $md-mw,
+	lg: $lg-mw,
+	xl: $xl-mw
+);
+
+$container-max-widths:(
+	md: map-get($grid-breakpoints, md),
+	lg: map-get($grid-breakpoints, lg),
+	xl: map-get($grid-breakpoints, xl));
+
+.container {
+	margin: 0 auto;
+	max-width: $xl-bp - 12px;
+	display: block;
+	width: 100%;
+
+	&.fluid {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	@media only screen and (min-width: #{map-get($grid-breakpoints, md)}) {
+		max-width: 744px;
+		width: 748px;
+	}
+
+	@media only screen and (min-width: #{map-get($grid-breakpoints, lg)}) {
+		max-width: 984px;
+		width: 988px;
+	}
+
+	@media only screen and (min-width: #{map-get($grid-breakpoints, xl)}) {
+		max-width: 1244px;
+		width: 1232px;
+	}
+}
