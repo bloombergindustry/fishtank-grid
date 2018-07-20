@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/bloombergbna/fishtank-grid/compare/v2.3.5...v3.0.0) (2018-07-20)
+
+
+* Merge pull request #1 from bloombergbna/BREAKING-CHANGE-prefix-class-names ([beca018](https://github.com/bloombergbna/fishtank-grid/commit/beca018)), closes [#1](https://github.com/bloombergbna/fishtank-grid/issues/1)
+
+
+### BREAKING CHANGES
+
+* prefix class names
+
+
+
 <a name="2.3.5"></a>
 ## 2.3.5 (2018-07-20)
 
