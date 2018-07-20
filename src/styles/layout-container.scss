@@ -32,13 +32,13 @@ $container-max-widths:(
 	lg: map-get($grid-breakpoints, lg),
 	xl: map-get($grid-breakpoints, xl));
 
-.container {
+.ft-container {
 	margin: 0 auto;
 	max-width: $xl-bp - 12px;
 	display: block;
 	width: 100%;
 
-	&.fluid {
+	&.ft-fluid {
 		max-width: 100%;
 		width: 100%;
 	}

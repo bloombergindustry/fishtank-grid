@@ -12,7 +12,7 @@ $display-grid-container-max-widths:(
 	xl: map-get($grid-breakpoints, xl)
 );
 
-.row-dgrid {
+.ft-row-dgrid {
 	display: grid;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -25,7 +25,7 @@ $display-grid-container-max-widths:(
 		// padding-right: #{$baseline*3};
 	}
 
-	&.col-fixed {
+	&.ft-col-fixed {
 		@for $i from 1 through 12 {
 			&-#{$i} {
 
@@ -37,7 +37,7 @@ $display-grid-container-max-widths:(
 		}
 	}
 
-	.col {
+	.ft-col {
 		@for $i from 1 through 12 {
 			&-#{$i} {
 				grid-column: span #{$i};
@@ -49,7 +49,7 @@ $display-grid-container-max-widths:(
 	@each $size, $width in $display-grid-container-max-widths {
 		@media (min-width: #{$width}) {
 			@for $i from 1 through 12 {
-				.col {
+				.ft-col {
 					&-#{$size}#{$i} {
 
 						$gridColumns: span #{$i};
@@ -62,7 +62,7 @@ $display-grid-container-max-widths:(
 		}
 
 		@for $i from 1 through 13 {
-			.col-offset-start-#{$size} {
+			.ft-col-offset-start-#{$size} {
 				&#{$i} {
 
 					$gridColumnStart:#{$i};
@@ -72,7 +72,7 @@ $display-grid-container-max-widths:(
 				}
 			}
 
-			.col-offset-end-#{$size} {
+			.ft-col-offset-end-#{$size} {
 				&#{$i} {
 
 					$gridColumnEnd:#{$i};
