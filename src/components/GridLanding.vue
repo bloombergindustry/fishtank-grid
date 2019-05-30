@@ -61,7 +61,7 @@ export default {
   opacity: 0;
 }
 .examples {
-  .row-flex{
+  .ft-row-flex{
     > *   > *{
       // background: darkblue;
       color: white;
@@ -76,7 +76,7 @@ export default {
     margin-top: 8px;
     margin-bottom: 8px;
   }
-  .row-dgrid{
+  .ft-row-dgrid{
     & > *{
       background: darkblue;
       color: white;
